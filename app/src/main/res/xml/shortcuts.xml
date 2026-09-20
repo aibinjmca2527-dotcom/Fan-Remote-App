@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Google Assistant App Actions. Each shortcut runs one IR command through AssistantActivity,
+     which uses the same FanCommandManager as the on-screen buttons. -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <capability android:name="actions.intent.OPEN_APP_FEATURE">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <parameter
+                android:name="feature"
+                android:key="feature" />
+        </intent>
+    </capability>
+
+    <shortcut
+        android:shortcutId="fan_on"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/sc_fan_on">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <extra android:name="command" android:value="POWER_ON" />
+        </intent>
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/syn_fan_on" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="fan_off"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/sc_fan_off">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <extra android:name="command" android:value="POWER_OFF" />
+        </intent>
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/syn_fan_off" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="speed_up"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/sc_speed_up">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <extra android:name="command" android:value="SPEED_UP" />
+        </intent>
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/syn_speed_up" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="speed_down"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/sc_speed_down">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <extra android:name="command" android:value="SPEED_DOWN" />
+        </intent>
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/syn_speed_down" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="speed_1"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/sc_speed_1">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <extra android:name="command" android:value="SPEED_1" />
+        </intent>
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/syn_speed_1" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="speed_2"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/sc_speed_2">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <extra android:name="command" android:value="SPEED_2" />
+        </intent>
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/syn_speed_2" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="speed_3"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/sc_speed_3">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <extra android:name="command" android:value="SPEED_3" />
+        </intent>
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/syn_speed_3" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="speed_4"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/sc_speed_4">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <extra android:name="command" android:value="SPEED_4" />
+        </intent>
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/syn_speed_4" />
+        </capability-binding>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="speed_5"
+        android:enabled="true"
+        android:shortcutShortLabel="@string/sc_speed_5">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.fanremote"
+            android:targetClass="com.example.fanremote.AssistantActivity">
+            <extra android:name="command" android:value="SPEED_5" />
+        </intent>
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/syn_speed_5" />
+        </capability-binding>
+    </shortcut>
+</shortcuts>

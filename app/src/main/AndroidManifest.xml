@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- The only permission needed. It is a normal permission (granted at install). -->
+    <uses-permission android:name="android.permission.TRANSMIT_IR" />
+
+    <!-- Not required so the app installs everywhere and can show a friendly message
+         on phones without an IR blaster. -->
+    <uses-feature
+        android:name="android.hardware.consumerir"
+        android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- Google Assistant App Actions / shortcuts (see res/xml/shortcuts.xml) -->
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+
+        <!-- Invisible entry point used by Assistant/shortcuts. Sends the IR command through
+             the same FanCommandManager as the UI buttons, then closes itself.
+             showWhenLocked only lets it run above the lock screen when the OS allows it;
+             it never dismisses or bypasses the keyguard. -->
+        <activity
+            android:name=".AssistantActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:showWhenLocked="true"
+            android:taskAffinity=""
+            android:theme="@style/AssistantTheme" />
+    </application>
+</manifest>

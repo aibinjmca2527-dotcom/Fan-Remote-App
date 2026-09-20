@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tom’s Remote</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+
+    <string name="cd_menu">Help</string>
+    <string name="cd_settings">Settings</string>
+    <string name="cd_power">Power</string>
+    <string name="cd_fan">Fan</string>
+    <string name="cd_timer">Timer</string>
+    <string name="cd_light">Light</string>
+    <string name="cd_swing">Swing</string>
+    <string name="cd_dial">Fan speed dial: speeds 1 to 5 and boost</string>
+
+    <string name="hint_default">IR is one-way: the display shows what this app last sent, not a confirmed fan state.</string>
+    <string name="sent_ok">Sent: %1$s</string>
+
+    <string name="err_no_signal">%1$s signal has not been added yet.</string>
+    <string name="err_no_ir">This phone has no IR transmitter, so it cannot control the fan.</string>
+    <string name="err_frequency">This phone\'s IR transmitter does not support that signal\'s frequency.</string>
+    <string name="err_invalid">The saved signal for %1$s is invalid. Please check it.</string>
+    <string name="err_failed">Could not send the IR signal. Please try again.</string>
+    <string name="err_speed_range">Fan speed must be between 1 and 5.</string>
+    <string name="err_assistant_unrecognised">Sorry, that fan command was not recognised.</string>
+    <string name="info_already_on">The fan is already assumed to be ON. Use the power button if that is wrong.</string>
+    <string name="info_already_off">The fan is already assumed to be OFF. Use the power button if that is wrong.</string>
+    <string name="info_max_speed">Already at the highest speed (5).</string>
+    <string name="info_min_speed">Already at the lowest speed (1).</string>
+
+    <string name="no_ir_title">No IR transmitter found</string>
+    <string name="no_ir_message">This phone does not have a compatible IR transmitter, so it cannot send commands to the fan. The screen is shown for reference only.</string>
+    <string name="ir_ready">IR transmitter: ready</string>
+    <string name="ir_missing">IR transmitter: not available on this phone</string>
+
+    <string name="help_title">Help</string>
+    <string name="help_body">%1$s\nSignals added: %2$d of %3$d buttons\n\nVoice commands (Google Assistant App Actions):\n• “turn on the fan” / “turn off the fan”\n• “increase / decrease the fan speed”\n• “set the fan to speed 3”\n\nPhrase them as “Hey Google, fan on in Tom’s Remote” if needed. If the phone is locked, Android or Assistant may ask you to unlock first.\n\nThe display shows what this app last sent. IR has no feedback, so the real fan state is not known.</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="setting_haptic">Vibrate on button press</string>
+    <string name="reset_state">Reset display</string>
+    <string name="state_reset">Display reset. Use it to re-sync with the real fan.</string>
+
+    <!-- Assistant / shortcut labels -->
+    <string name="sc_fan_on">Fan on</string>
+    <string name="sc_fan_off">Fan off</string>
+    <string name="sc_speed_up">Speed up</string>
+    <string name="sc_speed_down">Speed down</string>
+    <string name="sc_speed_1">Speed 1</string>
+    <string name="sc_speed_2">Speed 2</string>
+    <string name="sc_speed_3">Speed 3</string>
+    <string name="sc_speed_4">Speed 4</string>
+    <string name="sc_speed_5">Speed 5</string>
+</resources>

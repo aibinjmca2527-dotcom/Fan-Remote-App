@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Phrases Assistant can match to each shortcut (feature parameter of OPEN_APP_FEATURE) -->
+    <string-array name="syn_fan_on">
+        <item>fan on</item>
+        <item>turn on the fan</item>
+        <item>switch on the fan</item>
+        <item>power on</item>
+    </string-array>
+    <string-array name="syn_fan_off">
+        <item>fan off</item>
+        <item>turn off the fan</item>
+        <item>switch off the fan</item>
+        <item>power off</item>
+    </string-array>
+    <string-array name="syn_speed_up">
+        <item>speed up</item>
+        <item>increase fan speed</item>
+        <item>faster</item>
+    </string-array>
+    <string-array name="syn_speed_down">
+        <item>speed down</item>
+        <item>decrease fan speed</item>
+        <item>slower</item>
+    </string-array>
+    <string-array name="syn_speed_1"><item>speed 1</item><item>speed one</item></string-array>
+    <string-array name="syn_speed_2"><item>speed 2</item><item>speed two</item></string-array>
+    <string-array name="syn_speed_3"><item>speed 3</item><item>speed three</item></string-array>
+    <string-array name="syn_speed_4"><item>speed 4</item><item>speed four</item></string-array>
+    <string-array name="syn_speed_5"><item>speed 5</item><item>speed five</item></string-array>
+</resources>
