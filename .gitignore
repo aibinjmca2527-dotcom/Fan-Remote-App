@@ -5,3 +5,9 @@
 .DS_Store
 /build/
 /app/build/
+
+*.jks
+*.keystore
+keystore.properties
+google-services.json
+.env
