@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
         View settings = findViewById(R.id.btnSettings);
         PressEffect.apply(menu);
         PressEffect.apply(settings);
-        menu.setOnClickListener(v -> showHelp());
+        menu.setOnClickListener(v -> showMenu(v));
         settings.setOnClickListener(v -> showSettings());
 
         if (savedInstanceState == null && !manager.isIrAvailable()) {
@@ -105,13 +105,37 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
         dial.setSelectedSpeed(state.powerOn && !state.boost ? state.speed : 0);
     }
 
+    private void showMenu(View anchor) {
+        android.widget.PopupMenu popup = new android.widget.PopupMenu(this, anchor);
+        popup.getMenu().add(R.string.menu_help);
+        popup.setOnMenuItemClickListener(item -> {
+            showHelp();
+            return true;
+        });
+        popup.show();
+    }
+
+    private void emailDeveloper() {
+        android.content.Intent i = new android.content.Intent(android.content.Intent.ACTION_SENDTO);
+        i.setData(android.net.Uri.parse("mailto:Aibinjoseph9605573691@gmail.com"));
+        i.putExtra(android.content.Intent.EXTRA_SUBJECT, "Tom's Remote - issue report");
+        i.putExtra(android.content.Intent.EXTRA_TEXT,
+                "Describe the problem:\n\n\nPhone: " + android.os.Build.MANUFACTURER + " "
+                        + android.os.Build.MODEL + "\nAndroid: " + android.os.Build.VERSION.RELEASE);
+        try {
+            startActivity(i);
+        } catch (android.content.ActivityNotFoundException e) {
+            Toast.makeText(this, R.string.no_email_app, Toast.LENGTH_LONG).show();
+        }
+    }
+
     private void showHelp() {
         String ir = getString(manager.isIrAvailable() ? R.string.ir_ready : R.string.ir_missing);
         String body = getString(R.string.help_body, ir,
                 FanRemoteConfig.configuredUiButtons(), RemoteButton.UI_BUTTONS.length);
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
                 .setTitle(R.string.help_title)
-                .setMessage(body)
+                .setMessage(body).setNeutralButton(R.string.email_developer, (dlg, w) -> emailDeveloper())
                 .setPositiveButton(android.R.string.ok, null)
                 .show();
     }
