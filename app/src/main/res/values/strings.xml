@@ -36,7 +36,7 @@
     <string name="help_title">Help</string>
     <string name="help_body">%1$s\nSignals added: %2$d of %3$d buttons\n\nVoice commands (Google Assistant App Actions):\n• “turn on the fan” / “turn off the fan”\n• “increase / decrease the fan speed”\n• “set the fan to speed 3”\n\nPhrase them as “Hey Google, fan on in Tom’s Remote” if needed. If the phone is locked, Android or Assistant may ask you to unlock first.\n\nThe display shows what this app last sent. IR has no feedback, so the real fan state is not known.</string>
 
-    <string name="settings_title">Settings</string>
+    <string name="settings_title">Settings</string> <string name="about_body">Version: %1$s\nDeveloper: Aibin Joseph</string>
     <string name="setting_haptic">Vibrate on button press</string>
     <string name="reset_state">Reset display</string>
     <string name="state_reset">Display reset. Use it to re-sync with the real fan.</string>

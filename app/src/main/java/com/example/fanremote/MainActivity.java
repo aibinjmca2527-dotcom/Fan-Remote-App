@@ -117,16 +117,15 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
     }
 
     private void showSettings() {
-        final boolean[] checked = {prefs.getBoolean(KEY_HAPTIC, true)};
+        String version = "1.0";
+        try {
+            version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        } catch (Exception e) {
+            // keep the default
+        }
         new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
                 .setTitle(R.string.settings_title)
-                .setMultiChoiceItems(new CharSequence[]{getString(R.string.setting_haptic)},
-                        checked, (d, which, isChecked) ->
-                                prefs.edit().putBoolean(KEY_HAPTIC, isChecked).apply())
-                .setNeutralButton(R.string.reset_state, (d, w) -> {
-                    manager.resetAssumedState();
-                    hintText.setText(R.string.state_reset);
-                })
+                .setMessage(getString(R.string.about_body, version))
                 .setPositiveButton(android.R.string.ok, null)
                 .show();
     }
