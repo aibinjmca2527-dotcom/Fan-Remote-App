@@ -66,17 +66,6 @@
             android:paddingStart="24dp"
             android:paddingEnd="24dp">
 
-            <ImageButton
-                android:id="@+id/btnPower"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:background="@drawable/btn_power"
-                android:contentDescription="@string/cd_power"
-                android:elevation="6dp"
-                android:padding="18dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_power" />
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="64dp"
@@ -145,56 +134,43 @@
             <FrameLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"/>
 
-                <ImageButton
-                    android:id="@+id/btnTimer"
-                    android:layout_width="84dp"
-                    android:layout_height="84dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/btn_timer"
-                    android:contentDescription="@string/cd_timer"
-                    android:elevation="6dp"
-                    android:padding="22dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_clock" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <ImageButton
-                    android:id="@+id/btnLight"
-                    android:layout_width="84dp"
-                    android:layout_height="84dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/btn_light"
-                    android:contentDescription="@string/cd_light"
-                    android:elevation="6dp"
-                    android:padding="20dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_bulb" />
-            </FrameLayout>
+            <ImageButton
+                android:id="@+id/btnLight"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_light"
+                android:contentDescription="@string/cd_light"
+                android:elevation="6dp"
+                android:padding="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_bulb" />
 
             <FrameLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-                <ImageButton
-                    android:id="@+id/btnSwing"
-                    android:layout_width="84dp"
-                    android:layout_height="84dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/btn_swing"
-                    android:contentDescription="@string/cd_swing"
-                    android:elevation="6dp"
-                    android:padding="22dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_swap" />
             </FrameLayout>
+
+            <ImageButton
+                android:id="@+id/btnPower"
+                android:layout_width="82dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_power"
+                android:contentDescription="@string/cd_power"
+                android:elevation="6dp"
+                android:padding="18dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_power" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
         </LinearLayout>
 
         <TextView

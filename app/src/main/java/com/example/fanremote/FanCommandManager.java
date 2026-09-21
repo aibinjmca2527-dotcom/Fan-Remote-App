@@ -63,14 +63,14 @@ public final class FanCommandManager {
     private final List<StateListener> listeners = new CopyOnWriteArrayList<>();
 
     private boolean powerOn;
-    private int speed;
+    private int speed; private boolean boost;
 
     private FanCommandManager(Context context) {
         appContext = context;
         transmitter = new IrTransmitter(context);
         prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         powerOn = prefs.getBoolean("power", false);
-        speed = prefs.getInt("speed", 0);
+        speed = prefs.getInt("speed", 0); boost = prefs.getBoolean("boost", false);
     }
 
     // ---------------------------------------------------------------- state
@@ -80,7 +80,7 @@ public final class FanCommandManager {
     }
 
     public FanState getState() {
-        return new FanState(powerOn, speed);
+        return new FanState(powerOn, speed, boost);
     }
 
     public void addListener(StateListener l) {
@@ -94,17 +94,17 @@ public final class FanCommandManager {
     /** Lets the user correct the assumed state (e.g. after using the physical remote). */
     public void resetAssumedState() {
         powerOn = false;
-        speed = 0;
+        speed = 0; boost = false;
         persistAndNotify();
     }
 
     private void persistAndNotify() {
-        prefs.edit().putBoolean("power", powerOn).putInt("speed", speed).apply();
+        prefs.edit().putBoolean("power", powerOn).putInt("speed", speed).putBoolean("boost", boost).apply();
         FanState s = getState();
         for (StateListener l : listeners) l.onStateChanged(s);
     }
 
-    private void applyState(RemoteButton b) {
+    private void applyState(RemoteButton b) { final boolean wasBoost = boost; if (b != RemoteButton.LIGHT && b != RemoteButton.TIMER && b != RemoteButton.SWING) boost = false;
         switch (b) {
             case POWER:     powerOn = !powerOn; break;
             case POWER_ON:  powerOn = true; break;
@@ -120,7 +120,7 @@ public final class FanCommandManager {
             case SPEED_DOWN:
                 speed = Math.max(1, speed - 1);
                 break;
-            case BOOST:
+            case BOOST: boost = !wasBoost;
                 powerOn = true;
                 break;
             default:

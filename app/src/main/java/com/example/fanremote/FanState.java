@@ -6,9 +6,9 @@ package com.example.fanremote;
  */
 public final class FanState {
     public final boolean powerOn;
-    public final int speed; // 0 = unknown, otherwise 1..5
+    public final int speed; public final boolean boost; // 0 = unknown, otherwise 1..5
 
-    public FanState(boolean powerOn, int speed) {
+    public FanState(boolean powerOn, int speed, boolean boost) { this.boost = boost;
         this.powerOn = powerOn;
         this.speed = speed;
     }

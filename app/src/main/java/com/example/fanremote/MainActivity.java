@@ -35,9 +35,9 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
         hintText = findViewById(R.id.hintText);
 
         bind(R.id.btnPower, RemoteButton.POWER);
-        bind(R.id.btnTimer, RemoteButton.TIMER);
+
         bind(R.id.btnLight, RemoteButton.LIGHT);
-        bind(R.id.btnSwing, RemoteButton.SWING);
+
 
         dial.setListener(new FanDialView.Listener() {
             @Override
@@ -101,8 +101,8 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
     @Override
     public void onStateChanged(FanState state) {
         statusText.setText(state.powerOn ? R.string.on : R.string.off);
-        speedText.setText(state.speed > 0 ? String.valueOf(state.speed) : "\u2013");
-        dial.setSelectedSpeed(state.powerOn ? state.speed : 0);
+        speedText.setText(state.boost && state.powerOn ? "B" : (state.speed > 0 ? String.valueOf(state.speed) : "\u2013"));
+        dial.setSelectedSpeed(state.powerOn && !state.boost ? state.speed : 0);
     }
 
     private void showHelp() {
