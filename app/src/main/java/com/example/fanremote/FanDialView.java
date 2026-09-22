@@ -34,13 +34,13 @@ public class FanDialView extends View {
     /** Centre angle of each wedge (Canvas degrees: 0 = east, clockwise). */
     private static final float[] CENTER_ANGLE = {270f, 342f, 54f, 126f, 198f};
     private static final int[][] COLORS = {
-            {0xFF3AAAFF, 0xFF0A62E6}, // 3 blue
-            {0xFF4FE8C8, 0xFF0E8C78}, // 4 teal
-            {0xFFFF5AB4, 0xFF9A1AB6}, // 5 pink
-            {0xFFFFBA2B, 0xFFFF7600}, // 1 orange
-            {0xFF9C60FF, 0xFF4527D3}  // 2 purple
+            {0xFFC3CFDA, 0xFF9DACBC}, // 3 grey-blue
+            {0xFFB7D9F2, 0xFF8FBEE3}, // 4 light blue
+            {0xFFD3C2E6, 0xFFB79ED4}, // 5 lavender
+            {0xFFD2CCBC, 0xFFB7AF98}, // 1 beige
+            {0xFFB6CC9C, 0xFF97B77A}  // 2 green
     };
-    private static final int CYAN = 0xFF22E3FF;
+    private static final int CYAN = 0xFF2B3A4A;
     private static final float SWEEP = 72f;
 
     private final Paint fill = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -119,10 +119,10 @@ public class FanDialView extends View {
                     COLORS[i][0], COLORS[i][1], Shader.TileMode.CLAMP);
         }
         panelShader = new RadialGradient(cx, cy, panelR,
-                new int[]{0xFF0C3A9A, 0xFF071F62, 0xFF061850}, new float[]{0f, 0.7f, 1f},
+                new int[]{0xFFFFFFFF, 0xFFF0F1F3, 0xFFE3E5E8}, new float[]{0f, 0.7f, 1f},
                 Shader.TileMode.CLAMP);
         centerShader = new RadialGradient(cx, cy, ringR,
-                new int[]{0xFF0B2B78, 0xFF041040}, null, Shader.TileMode.CLAMP);
+                new int[]{0xFF4B5563, 0xFF2E3642}, null, Shader.TileMode.CLAMP);
 
         if (boostIcon != null) {
             float size = panelR * 0.42f;
@@ -146,7 +146,7 @@ public class FanDialView extends View {
         stroke.setShader(null);
         stroke.setStyle(Paint.Style.STROKE);
         stroke.setStrokeWidth(2 * density);
-        stroke.setColor(0x552A7BFF);
+        stroke.setColor(0x332B3A4A);
         c.drawCircle(cx, cy, panelR, stroke);
 
         // Wedges
@@ -169,7 +169,7 @@ public class FanDialView extends View {
             }
             if (SPEEDS[i] == selectedSpeed) {
                 stroke.setStrokeWidth(9 * density);
-                stroke.setColor(0x4422E3FF);
+                stroke.setColor(0x332B3A4A);
                 c.drawPath(paths[i], stroke);
                 stroke.setStrokeWidth(2.5f * density);
                 stroke.setColor(CYAN);
@@ -183,7 +183,7 @@ public class FanDialView extends View {
             float tr = panelR * 0.72f;
             text.setTextSize(panelR * 0.20f);
             text.setLetterSpacing(0f);
-            text.setColor(0xFFFFFFFF);
+            text.setColor(0xFF2B3A4A);
             float ty = cy + (float) Math.sin(a) * tr
                     - (text.ascent() + text.descent()) / 2f;
             c.drawText(String.valueOf(SPEEDS[i]), cx + (float) Math.cos(a) * tr, ty, text);
@@ -200,15 +200,16 @@ public class FanDialView extends View {
         }
         stroke.setStyle(Paint.Style.STROKE);
         stroke.setStrokeWidth(8 * density);
-        stroke.setColor(0x3322E3FF);
+        stroke.setColor(0x332B3A4A);
         c.drawCircle(cx, cy, ringR, stroke);
         stroke.setStrokeWidth(3 * density);
-        stroke.setColor(CYAN);
+        stroke.setColor(0xFFFFFFFF);
         c.drawCircle(cx, cy, ringR, stroke);
 
         if (boostIcon != null) boostIcon.draw(c);
         text.setTextSize(panelR * 0.095f);
         text.setLetterSpacing(0.06f);
+        text.setColor(0xFFFFFFFF);
         c.drawText("BOOST", cx, cy + panelR * 0.29f, text);
     }
 

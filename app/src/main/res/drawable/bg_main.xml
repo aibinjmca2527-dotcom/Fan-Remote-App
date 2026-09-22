@@ -3,7 +3,7 @@
     <!-- angle 270 = top to bottom -->
     <gradient
         android:angle="270"
-        android:startColor="#0B45B5"
-        android:centerColor="#0A64DC"
-        android:endColor="#0847B5" />
+        android:startColor="#F7F8FA"
+        android:centerColor="#F0F1F3"
+        android:endColor="#E7E9EC" />
 </shape>
