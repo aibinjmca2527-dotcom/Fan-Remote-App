@@ -26,6 +26,7 @@
                 android:contentDescription="@string/cd_menu"
                 android:scaleType="centerInside"
                 android:tint="#2B3A4A"
+                android:tint="#2B3A4A"
                 android:src="@drawable/ic_menu" />
 
             <TextView
@@ -46,6 +47,7 @@
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/cd_settings"
                 android:scaleType="centerInside"
+                android:tint="#2B3A4A"
                 android:tint="#2B3A4A"
                 android:src="@drawable/ic_settings" />
         </LinearLayout>
