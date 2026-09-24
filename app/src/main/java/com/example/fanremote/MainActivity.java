@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
         View settings = findViewById(R.id.btnSettings);
         PressEffect.apply(menu);
         PressEffect.apply(settings);
-        menu.setOnClickListener(v -> showMenu(v));
+        menu.setOnClickListener(v -> showHelp());
         settings.setOnClickListener(v -> showSettings());
 
         if (savedInstanceState == null && !manager.isIrAvailable()) {
@@ -103,16 +103,6 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
         statusText.setText(state.powerOn ? R.string.on : R.string.off);
         speedText.setText(state.boost && state.powerOn ? "B" : (state.speed > 0 ? String.valueOf(state.speed) : "\u2013"));
         dial.setSelectedSpeed(state.powerOn && !state.boost ? state.speed : 0);
-    }
-
-    private void showMenu(View anchor) {
-        android.widget.PopupMenu popup = new android.widget.PopupMenu(this, anchor);
-        popup.getMenu().add(R.string.menu_help);
-        popup.setOnMenuItemClickListener(item -> {
-            showHelp();
-            return true;
-        });
-        popup.show();
     }
 
     private void emailDeveloper() {

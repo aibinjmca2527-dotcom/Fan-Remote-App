@@ -13,7 +13,7 @@
     <string name="cd_swing">Swing</string>
     <string name="cd_dial">Fan speed dial: speeds 1 to 5 and boost</string>
 
-    <string name="hint_default">IR is one-way: the display shows what this app last sent, not a confirmed fan state.</string>
+    <string name="hint_default"></string>
     <string name="sent_ok">Sent: %1$s</string>
 
     <string name="err_no_signal">%1$s signal has not been added yet.</string>
