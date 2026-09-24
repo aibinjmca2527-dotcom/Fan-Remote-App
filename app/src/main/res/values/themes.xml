@@ -9,4 +9,18 @@
     </style>
 
     <style name="AssistantTheme" parent="android:Theme.Translucent.NoTitleBar" />
+
+    <style name="AppDialogTheme" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:colorBackground">#FFFFFF</item>
+        <item name="android:textColor">#2B3A4A</item>
+        <item name="android:textColorPrimary">#2B3A4A</item>
+        <item name="android:textColorSecondary">#5B6672</item>
+        <item name="android:colorAccent">#2B3A4A</item>
+        <item name="android:buttonBarButtonStyle">@style/AppDialogButton</item>
+    </style>
+
+    <style name="AppDialogButton" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:textColor">#2B3A4A</item>
+    </style>
 </resources>
