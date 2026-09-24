@@ -82,7 +82,7 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
     private void showResult(FanCommandManager.CommandResult r) {
         if (isFinishing() || isDestroyed()) return;
         hintText.setText(r.message);
-        if (!r.success) Toast.makeText(this, r.message, Toast.LENGTH_SHORT).show();
+        // Toast removed: it triggers a system dim overlay on some phones. The message text below already shows this.
     }
 
     @Override
