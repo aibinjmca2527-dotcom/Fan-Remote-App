@@ -60,7 +60,7 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
         settings.setOnClickListener(v -> showSettings());
 
         if (savedInstanceState == null && !manager.isIrAvailable()) {
-            new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+            new AlertDialog.Builder(this, R.style.AppDialogTheme)
                     .setTitle(R.string.no_ir_title)
                     .setMessage(R.string.no_ir_message)
                     .setPositiveButton(android.R.string.ok, null)
@@ -133,7 +133,7 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
         String ir = getString(manager.isIrAvailable() ? R.string.ir_ready : R.string.ir_missing);
         String body = getString(R.string.help_body, ir,
                 FanRemoteConfig.configuredUiButtons(), RemoteButton.UI_BUTTONS.length);
-        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+        new AlertDialog.Builder(this, R.style.AppDialogTheme)
                 .setTitle(R.string.help_title)
                 .setMessage(body).setNeutralButton(R.string.email_developer, (dlg, w) -> emailDeveloper())
                 .setPositiveButton(android.R.string.ok, null)
@@ -147,7 +147,7 @@ public class MainActivity extends Activity implements FanCommandManager.StateLis
         } catch (Exception e) {
             // keep the default
         }
-        new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
+        new AlertDialog.Builder(this, R.style.AppDialogTheme)
                 .setTitle(R.string.settings_title)
                 .setMessage(getString(R.string.about_body, version))
                 .setPositiveButton(android.R.string.ok, null)

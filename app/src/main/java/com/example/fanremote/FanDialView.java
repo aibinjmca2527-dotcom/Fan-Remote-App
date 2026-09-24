@@ -164,7 +164,7 @@ public class FanDialView extends View {
             c.drawPath(paths[i], stroke);
 
             if (pressedHit == i) {
-                fill.setColor(0x55FFFFFF);
+                fill.setColor(0x402B3A4A);
                 c.drawPath(paths[i], fill);
             }
             if (SPEEDS[i] == selectedSpeed) {
