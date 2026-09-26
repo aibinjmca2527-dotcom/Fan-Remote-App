@@ -66,6 +66,7 @@ public class FanDialView extends View {
     public FanDialView(Context context, AttributeSet attrs) {
         super(context, attrs);
         density = getResources().getDisplayMetrics().density;
+        if (android.os.Build.VERSION.SDK_INT >= 29) setForceDarkAllowed(false);
         boostIcon = context.getDrawable(R.drawable.ic_fan_boost);
         text.setTextAlign(Paint.Align.CENTER);
         text.setTypeface(Typeface.DEFAULT_BOLD);
@@ -154,7 +155,12 @@ public class FanDialView extends View {
         for (int i = 0; i < 5; i++) {
             fill.setPathEffect(round);
             fill.setStyle(Paint.Style.FILL);
-            fill.setShader(shaders[i]);
+            if (pressedHit == i) {
+                fill.setShader(null);
+                fill.setColor(COLORS[i][1]); // flat pre-darkened solid, single draw, nothing to leak
+            } else {
+                fill.setShader(shaders[i]);
+            }
             c.drawPath(paths[i], fill);
             fill.setShader(null);
 
@@ -163,10 +169,6 @@ public class FanDialView extends View {
             stroke.setColor(0x66FFFFFF);
             c.drawPath(paths[i], stroke);
 
-            if (pressedHit == i) {
-                fill.setColor(0x402B3A4A);
-                c.drawPath(paths[i], fill);
-            }
             if (SPEEDS[i] == selectedSpeed) {
                 stroke.setStrokeWidth(9 * density);
                 stroke.setColor(0x332B3A4A);
@@ -191,13 +193,14 @@ public class FanDialView extends View {
 
         // Centre BOOST button
         fill.setStyle(Paint.Style.FILL);
-        fill.setShader(centerShader);
+        if (pressedHit == HIT_BOOST) {
+            fill.setShader(null);
+            fill.setColor(0xFF37424F); // flat pre-darkened solid, single draw, nothing to leak
+        } else {
+            fill.setShader(centerShader);
+        }
         c.drawCircle(cx, cy, ringR, fill);
         fill.setShader(null);
-        if (pressedHit == HIT_BOOST) {
-            fill.setColor(0x33FFFFFF);
-            c.drawCircle(cx, cy, ringR, fill);
-        }
         stroke.setStyle(Paint.Style.STROKE);
         stroke.setStrokeWidth(8 * density);
         stroke.setColor(0x332B3A4A);
@@ -212,7 +215,6 @@ public class FanDialView extends View {
         text.setColor(0xFFFFFFFF);
         c.drawText("BOOST", cx, cy + panelR * 0.29f, text);
     }
-
     // ------------------------------------------------------------ touch
 
     private int hitTest(float x, float y) {
@@ -244,9 +246,10 @@ public class FanDialView extends View {
                 int hit = pressedHit;
                 boolean same = hit != HIT_NONE && hitTest(e.getX(), e.getY()) == hit;
                 pressedHit = HIT_NONE;
+                post(this::invalidate);
                 invalidate();
                 if (same) {
-                    performClick();
+                    performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY);
                     if (listener != null) {
                         if (hit == HIT_BOOST) listener.onBoostPressed();
                         else listener.onSpeedPressed(SPEEDS[hit]);

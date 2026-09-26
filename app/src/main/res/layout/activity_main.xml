@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:forceDarkAllowed="false">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -110,6 +111,7 @@
         <!-- Speed dial -->
         <com.example.fanremote.FanDialView
             android:id="@+id/dial"
+            android:forceDarkAllowed="false"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -168,7 +170,7 @@
 
         </LinearLayout>
 
-        <TextView
+                <TextView
             android:id="@+id/hintText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
